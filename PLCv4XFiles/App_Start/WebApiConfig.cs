@@ -14,9 +14,14 @@ namespace PLCv4XFiles
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+
+
+            //  defaults: new { controller = "z_PLC_Device", action = "z_PLC_Device", id = RouteParameter.Optional }
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
+
                 defaults: new { id = RouteParameter.Optional }
             );
         }

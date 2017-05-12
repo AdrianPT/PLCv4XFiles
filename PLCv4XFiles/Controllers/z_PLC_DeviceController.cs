@@ -12,7 +12,7 @@ using System.Web.Http.Description;
 using PLCv4XFiles.Models;
 
 namespace PLCv4XFiles.Controllers
-{
+{   // http://localhost:53725/api/z_PLC_Device/1
     public class z_PLC_DeviceController : ApiController
     {
         private PLCv4XFilesContext db = new PLCv4XFilesContext();

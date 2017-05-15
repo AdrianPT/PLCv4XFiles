@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace PLCv4XFiles
@@ -15,8 +16,13 @@ namespace PLCv4XFiles
     {
         protected void Application_Start()
         {
+           // GlobalConfiguration.Configure(WebApiConfig.Register);
+            // Code that runs on application startup
+            AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            iniciarTask();
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+           // iniciarTask();
         }
 
 
@@ -61,6 +67,11 @@ namespace PLCv4XFiles
 
                 // SimpleLog.Log(se);
 
+            }
+            catch (NotImplementedException ex) {
+
+                HttpContext ctx = HttpContext.Current;
+                ctx.Response.Clear();
             }
 
 
